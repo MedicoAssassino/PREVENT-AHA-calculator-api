@@ -1,4 +1,5 @@
 <?php
+namespace HClean\PreventCalcApi;
 class PreventCalculatorApi
 {
     // Coefficients extracted from Tables S12A to S12E of the AHA 2023 article supplement

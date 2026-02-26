@@ -1,0 +1,31 @@
+{
+    "name": "medicoassassino/prevent-aha-calculator-api",
+    "description": "AHA 2023 PREVENT equations for cardiovascular risk calculation in Laravel.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "HClean\\PreventCalcApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "MedicoAssassino",
+            "email": "hpak89@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^10.0|^11.0|^12.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "HClean\\PreventCalcApi\\MyServiceProvider"
+            ],
+            "aliases": {
+                "PreventCalc": "HClean\\PreventCalcApi\\Facades\\PreventCalc"
+            }
+        }
+    }
+}
