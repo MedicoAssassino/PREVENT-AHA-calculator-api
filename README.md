@@ -19,7 +19,7 @@ These new equations utilize data from the latest multi-ethnic cohorts and have t
 This service is designed to receive patient clinical data via a `JSON` payload and return the calculated 10-year risk percentages after processing.
 
 ### 🎯 Endpoint Expectation
-You can easily integrate this class into the controllers of frameworks like **Laravel** (or Serverless functions) to handle `POST` requests.
+You can easily integrate this class into the controllers of PHPframeworks (or Serverless functions) to handle `POST` requests.
 
 **📌 Required Headers:**
 - `Content-Type: application/json`
@@ -79,20 +79,53 @@ The `calculate()` method in this service acts as a smart router, selecting the a
 
 ---
 
-## 💻 PHP / Laravel Implementation Example
-To use this calculation service in your projects, simply instantiate the class and pass the decoded JSON data to the `calculate` method:
+## 📦 Installation via Composer
+
+To integrate this service into your Laravel project, run the following command in your terminal:
+
+```bash
+composer require h.clean/prevent-calc-api
+```
+
+### ⚙️ Laravel Integration
+
+This package features **Auto-Discovery**, meaning Laravel will automatically register the Service Provider and the `PreventCalc` Facade.
+
+#### Using the Facade (Recommended)
+You can call the calculator from anywhere in your application:
 
 ```php
-use App\Services\PreventCalculatorApi;
+use HClean\PreventCalcApi\Facades\PreventCalc;
 
-// Receiving data from the request (in Laravel: $request->all())
-$patientData = json_decode($requestPayload, true);
+$data = [
+    "gender" => "female",
+    "age" => 55,
+    "tc" => 210,
+    "hdl" => 55,
+    "sbp" => 130,
+    "bmi" => 26.0,
+    "egfr" => 85,
+    "diabetes" => 0,
+    "smoker" => 0,
+    "bpMeds" => 0,
+    "statin" => 0
+];
 
-$calculator = new PreventCalculatorApi();
-$risks = $calculator->calculate($patientData);
+$results = PreventCalc::calculate($data);
 
-return response()->json([
-    'status' => 'success',
-    'data' => $risks
-]);
+// Output: ["cvd" => 4.2, "ascvd" => 3.1, "hf" => 1.2]
 ```
+
+### 🛠 Manual Registration
+If you are using an older version of Laravel (below 5.5) or have auto-discovery disabled, add the following to your `config/app.php`:
+
+```php
+'providers' => [
+    HClean\PreventCalcApi\MyServiceProvider::class,
+],
+
+'aliases' => [
+    'PreventCalc' => HClean\PreventCalcApi\Facades\PreventCalc::class,
+],
+```
+
