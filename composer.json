@@ -1,5 +1,5 @@
 {
-    "name": "medicoassassino/prevent-aha-calculator-api",
+    "name": "medicoassassino/prevent-calc-api",
     "description": "AHA 2023 PREVENT equations for cardiovascular risk calculation in Laravel.",
     "type": "library",
     "license": "MIT",

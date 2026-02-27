@@ -84,7 +84,7 @@ The `calculate()` method in this service acts as a smart router, selecting the a
 To integrate this service into your Laravel project, run the following command in your terminal:
 
 ```bash
-composer require h.clean/prevent-calc-api
+composer require medicoassassino/prevent-calc-api
 ```
 
 ### ⚙️ Laravel Integration

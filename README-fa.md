@@ -84,7 +84,7 @@
 شما می‌توانید این پکیج را به راحتی از طریق کامپوزر در پروژه لاراول خود نصب کنید:
 
 ```bash
-composer require h.clean/prevent-calc-api
+composer require medicoassassino/prevent-calc-api
 ```
 
 ### ⚙️ ادغام با لاراول
