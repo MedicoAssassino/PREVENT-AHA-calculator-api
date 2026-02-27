@@ -130,3 +130,4 @@ $results = PreventCalc::calculate($data);
     'PreventCalc' => HClean\PreventCalcApi\Facades\PreventCalc::class,
 ],
 ```
+.
